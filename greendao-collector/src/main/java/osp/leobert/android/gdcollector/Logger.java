@@ -20,13 +20,13 @@ public class Logger {
      */
     public void info(CharSequence info) {
         if (isNotEmpty(info)) {
-            msg.printMessage(Diagnostic.Kind.NOTE, PREFIX_OF_LOGGER + "[INFO] " + info);
+            msg.printMessage(Diagnostic.Kind.NOTE, PREFIX_OF_LOGGER + "[INFO] " + info + "\r\n");
         }
     }
 
     public void error(CharSequence error) {
         if (isNotEmpty(error)) {
-            msg.printMessage(Diagnostic.Kind.WARNING, PREFIX_OF_LOGGER + "[ERROR] An exception is encountered, [" + error + "]");
+            msg.printMessage(Diagnostic.Kind.WARNING, PREFIX_OF_LOGGER + "[ERROR] An exception is encountered, [" + error + "]" + "\r\n");
         }
     }
 
@@ -38,7 +38,7 @@ public class Logger {
 
     public void warning(CharSequence warning) {
         if (isNotEmpty(warning)) {
-            msg.printMessage(Diagnostic.Kind.WARNING, PREFIX_OF_LOGGER + warning);
+            msg.printMessage(Diagnostic.Kind.WARNING, PREFIX_OF_LOGGER + warning + "\r\n");
         }
     }
 

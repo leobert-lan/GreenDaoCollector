@@ -120,14 +120,25 @@ class CollectorProcessor : AbstractProcessor() {
         val listTypeElement = processEnv.elementUtils.getTypeElement("java.util.List")
         val clzTypeElement = processEnv.elementUtils.getTypeElement("java.lang.Class")
 
-
-        val returnType = processEnv.typeUtils.getDeclaredType(listTypeElement, processEnv.typeUtils.getDeclaredType(clzTypeElement))
-
+        //List<Class<? extends AbstractDao<?, ?>>>
+        val returnType = ParameterizedTypeName.get(
+            ClassName.get(listTypeElement),
+            ParameterizedTypeName.get(
+                ClassName.get(clzTypeElement),
+                WildcardTypeName.subtypeOf(
+                    ParameterizedTypeName.get(
+                        ClassName.get("org.greenrobot.greendao", "AbstractDao"),
+                        ClassName.get("","?"),
+                        ClassName.get("","?")
+                    )
+                )
+            )
+        )
 
         val methodSpecGetAllMigrated = MethodSpec.methodBuilder("getAllMigratedDaos")
             .addJavadoc("return all Daos can found in this module")
             .addModifiers(Modifier.PUBLIC, Modifier.STATIC)
-            .returns(TypeName.get(returnType))
+            .returns(returnType)
             .apply {
                 val ret = "return java.util.Arrays.asList(\r\n" + entities.joinToString(separator = ",\r\n") {
                     "    " + it.fullDaoPkg + ".class"

@@ -3,6 +3,7 @@ package osp.leobert.android.gdcollector
 import com.google.auto.service.AutoService
 import com.squareup.javapoet.*
 import org.greenrobot.greendao.annotation.Generated
+import org.greenrobot.greendao.annotation.Keep
 import org.greenrobot.greendao.generator.DaoUtil
 import osp.leobert.android.gdcollector.greendao.Consts
 import osp.leobert.android.gdcollector.greendao.GreenDaoEntity
@@ -154,7 +155,8 @@ class CollectorProcessor : AbstractProcessor() {
 
     private fun checkIfHandledEntity(element: TypeElement): Boolean {
         return element.enclosedElements.find {
-            it.getAnnotation(Generated::class.java) != null
+            it.getAnnotation(Generated::class.java) != null ||
+                    it.getAnnotation(Keep::class.java) != null
         } != null
     }
 

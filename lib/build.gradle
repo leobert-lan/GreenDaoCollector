@@ -1,0 +1,43 @@
+plugins {
+    id 'java'///*-library*/'
+    id 'org.jetbrains.kotlin.jvm'
+//    id 'kotlin-kapt'
+bui    id 'com.vanniktech.maven.publish'
+}
+
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+dependencies {
+    implementation "org.greenrobot:greendao-gradle-plugin:3.3.0"
+    implementation gradleApi()
+//    implementation('com.google.auto.service:auto-service:1.0-rc4')
+//    kapt 'com.google.auto.service:auto-service:1.0-rc4'
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir 'src-template'
+        }
+    }
+}
+
+
+publishing {
+    repositories {
+        maven {
+            def releasesRepoUrl = "http://114.116.245.170:9091/repository/maven-releases/"
+            def snapshotsRepoUrl = "http://114.116.245.170:9091/repository/maven-snapshots/"
+            url = version.endsWith('SNAPSHOT') ? /*snapshotsRepoUrl*/ "": /*releasesRepoUrl*/""
+            allowInsecureProtocol(true)
+            credentials {
+//                it.setUsername("developer")
+//                it.setPassword("developer")
+            }
+        }
+    }
+}

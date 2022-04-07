@@ -2,7 +2,7 @@ plugins {
     id 'java'///*-library*/'
     id 'org.jetbrains.kotlin.jvm'
 //    id 'kotlin-kapt'
-bui    id 'com.vanniktech.maven.publish'
+    id 'com.vanniktech.maven.publish'
 }
 
 

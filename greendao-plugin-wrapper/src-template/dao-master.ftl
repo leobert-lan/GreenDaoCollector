@@ -51,11 +51,11 @@ public class ${schema.prefix}DaoMaster extends AbstractDaoMaster {
     public static final List<Class<? extends AbstractDao<?, ?>>> allDao = new java.util.ArrayList();
 
     static {
-    <#list schema.entities as entity>
-        <#if !entity.skipCreationInDb>
-                allDao.add(${entity.classNameDao}.class);
-        </#if>
-    </#list>
+<#list schema.entities as entity>
+<#if !entity.skipCreationInDb>
+        allDao.add(${entity.classNameDao}.class);
+</#if>
+</#list>
     }
 
     /** Creates underlying database table using DAOs. */

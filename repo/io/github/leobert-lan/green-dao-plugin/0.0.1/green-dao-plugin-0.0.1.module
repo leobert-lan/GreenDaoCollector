@@ -1,0 +1,89 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "io.github.leobert-lan",
+    "module": "green-dao-plugin",
+    "version": "0.0.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "7.0.2"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.6.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "green-dao-plugin-0.0.1.jar",
+          "url": "green-dao-plugin-0.0.1.jar",
+          "size": 4004,
+          "sha512": "733ba997768c12c901256daaecf0cdc8e1c3fb39aad73ea578021877c6bd7c376ffa37a6b57a59dd63aaa54bc85e702ff6300eb9bef97361bae26c4c1b5eb9b8",
+          "sha256": "ce28a9df1b170c14ea9659555fbd65d6c14e146aa423e583c309bae5b1eb909e",
+          "sha1": "4f37ddfe538e6bba9bea92492b276ae6fc8e1a1f",
+          "md5": "8cb22613445d0fe99ee526e66d161f79"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.environment": "standard-jvm",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.greenrobot",
+          "module": "greendao-gradle-plugin",
+          "version": {
+            "requires": "3.3.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.6.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "green-dao-plugin-0.0.1.jar",
+          "url": "green-dao-plugin-0.0.1.jar",
+          "size": 4004,
+          "sha512": "733ba997768c12c901256daaecf0cdc8e1c3fb39aad73ea578021877c6bd7c376ffa37a6b57a59dd63aaa54bc85e702ff6300eb9bef97361bae26c4c1b5eb9b8",
+          "sha256": "ce28a9df1b170c14ea9659555fbd65d6c14e146aa423e583c309bae5b1eb909e",
+          "sha1": "4f37ddfe538e6bba9bea92492b276ae6fc8e1a1f",
+          "md5": "8cb22613445d0fe99ee526e66d161f79"
+        }
+      ]
+    }
+  ]
+}

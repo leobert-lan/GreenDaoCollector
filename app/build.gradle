@@ -4,7 +4,8 @@ plugins {
     id 'kotlin-kapt'
 }
 
-apply plugin: 'org.greenrobot.greendao'
+//apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'GreenDaoPluginWrapper'
 
 android {
     compileSdk 32
@@ -17,7 +18,24 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
     }
+    sourceSets {
+        main {
+            java {
+                srcDirs("build/generated/source/greendao")
+            }
+        }
+    }
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+        testOptions {
+            unitTests.returnDefaultValues = true
+        }
+    }
+
 
     buildTypes {
         release {
@@ -46,19 +64,28 @@ greendao {
     daoPackage 'osp.leobert.android.gdc.daos'
 }
 
+/*assemble*/
+build.doLast {
+    testDebugUnitTest
+}
+
+
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    //todo 保持统一 3.3.0？
-    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'org.greenrobot:greendao:3.3.0'
 
     kapt project(":greendao-collector")
+    testImplementation 'com.google.guava:guava-testlib:18.0'
+    testImplementation "org.robolectric:robolectric:3.8"
+    testImplementation "org.mockito:mockito-core:2.7.14"
 
 
     testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    androidTestImplementation 'com.google.guava:guava-testlib:18.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 }

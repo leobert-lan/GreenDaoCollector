@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.greenrobot</groupId>
+  <artifactId>greendao-gradle-plugin</artifactId>
+  <version>3.3.0</version>
+  <name>greenDAO Gradle Plugin</name>
+  <description>Gradle Plugin for greenDAO, the light and fast ORM for Android</description>
+  <url>https://github.com/greenrobot/greenDAO</url>
+  <organization>
+    <name>greenrobot</name>
+    <url>http://greenrobot.org</url>
+  </organization>
+  <licenses>
+    <license>
+      <name>GNU General Public License, Version 3</name>
+      <url>http://www.gnu.org/licenses/gpl.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>greenrobot</id>
+      <name>greenrobot</name>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git@github.com:greenrobot/greenDAO.git</connection>
+    <developerConnection>scm:git@github.com:greenrobot/greenDAO.git</developerConnection>
+    <url>https://github.com/greenrobot/greenDAO</url>
+  </scm>
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/greenrobot/greenDAO/issues</url>
+  </issueManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.greenrobot</groupId>
+      <artifactId>greendao-code-modifier</artifactId>
+      <version>3.3.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.12</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.mockito</groupId>
+      <artifactId>mockito-all</artifactId>
+      <version>1.10.19</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
